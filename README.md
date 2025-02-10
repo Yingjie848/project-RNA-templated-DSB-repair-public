@@ -1,0 +1,1 @@
+This resource deposites the code used in RNA-templated DSB repair paper. It includes scripts for running CRISPResso and identifying whole intron deletions (WID) in PCAWG and IMPACT datasets.
