@@ -1,4 +1,4 @@
-Processing steps:
+# Processing steps:
 1. To examine sample barcode, first run fetch_sample_barcode.sh to get the top 1 barcode as the sample barcode, then run RemoveBadBarcodes.py to remove reads not matched with sample barcode. 
 
 2. Run CRISPResso
