@@ -10,6 +10,6 @@ fastq_r1=(
 )
 
 for f in ${fastq_r1[@]}; do
-	echo "sh run_CRISPResso.244bp_Amp.sh $f output_30-645893503_cleaned" | bash
+	echo "sh run_CRISPResso.PE150.sh $f output_PE150_job1" | bash
 done
 

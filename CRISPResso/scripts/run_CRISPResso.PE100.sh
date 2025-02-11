@@ -3,13 +3,11 @@
 source activate ~/my_apps/miniconda3
 conda activate crispresso2_env
 
-fastq_r1=$1
-fastq_r2=$(echo $fastq_r1 | sed 's/_R1_/_R2_/')
+fastq_r1=$1 # since PE100 cannot cover 245bp amplicon sequence, we only use R1
 name=$(echo $fastq_r1 | sed 's/.*\///' | sed 's/_R1_.*//')
 
 echo $name
 echo $fastq_r1
-echo $fastq_r2
 
 output=$2
 

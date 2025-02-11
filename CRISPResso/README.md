@@ -3,10 +3,8 @@
 
 2. Run CRISPResso
 
-Run run_CRISPResso.244bp_Amp.sh for 244bp amplicon sequence.
+Run run_CRISPResso.PE150.sh for paired-end 150bp sequencing reads, and run_CRISPResso.PE100.sh for paired-end 100bp sequencing reads. For paired-end 100bp sequencing reads, the middle part of amplicon sequence is not covered, therefore, CRISPResso only uses the first read.
 
-Run run_CRISPResso.100bp_Amp.sh for 100bp amplicon sequence, because the read length in these samples is shorter.
-
-3. Create allele fraction table and count the Non-Indel, NHEJ, MMEJ, CTG Insertion, GAT Insertion, ATG Insertion using create_AF_table.100bp.sh and create_AF_table.244bp.sh 
+3. Create allele fraction table and count the Non-Indel, NHEJ, MMEJ, GAT Insertion, ATG Insertion using create_AF_table.PE150.sh and create_AF_table.PE100.sh 
 
 4. Calculate proportion of 3bp insertions, 2bp insertions, and 4bp insertions around cutting site: analyze_2bp_3bp_4bp_insertions.R

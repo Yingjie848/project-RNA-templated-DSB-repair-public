@@ -7,5 +7,5 @@ fastq_r1=(
 )
 
 for f in ${fastq_r1[@]}; do
-	echo "sh run_CRISPResso.100bp_Amp.sh $f output_juber_cleaned_fastq_100bp_window_size_20bp" | bash
+	echo "sh run_CRISPResso.PE100.sh $f output_PE100" | bash
 done

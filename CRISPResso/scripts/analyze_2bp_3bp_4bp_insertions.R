@@ -10,88 +10,88 @@ library(tidyverse)
 
 # due to alignment issue, gaps are added to alternative positions
 # at cutting site
-refseq_244bp_3bp          <- "TTTCTGTCACCAATC---CTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_244bp_2bp          <- "TTTTCTGTCACCAATC--CTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_244bp_4bp          <- "TTCTGTCACCAATC----CTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE150_3bp          <- "TTTCTGTCACCAATC---CTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE150_2bp          <- "TTTTCTGTCACCAATC--CTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE150_4bp          <- "TTCTGTCACCAATC----CTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
 
-refseq_100bp_3bp          <- "GTCACCAATC---CTGTCCCTAGTGGCCCCACTGTGGGGT"
-refseq_100bp_2bp          <- "TGTCACCAATC--CTGTCCCTAGTGGCCCCACTGTGGGGT"
-refseq_100bp_4bp          <- "TCACCAATC----CTGTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE100_3bp          <- "GTCACCAATC---CTGTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE100_2bp          <- "TGTCACCAATC--CTGTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE100_4bp          <- "TCACCAATC----CTGTCCCTAGTGGCCCCACTGTGGGGT"
 
 ## shift nucleotide on the right to the left
 
 # shift CTG 3bp to the left
-refseq_244bp_3bp_shiftCTG <- "TTTCTGTCACCAATCCTG---TCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_100bp_3bp_shiftCTG <- "GTCACCAATCCTG---TCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE150_3bp_shiftCTG <- "TTTCTGTCACCAATCCTG---TCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE100_3bp_shiftCTG <- "GTCACCAATCCTG---TCCCTAGTGGCCCCACTGTGGGGT"
 
 # shift C 3bp to the left
-refseq_244bp_3bp_shiftC   <- "TTTCTGTCACCAATCC---TGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_100bp_3bp_shiftC   <- "GTCACCAATCC---TGTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE150_3bp_shiftC   <- "TTTCTGTCACCAATCC---TGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE100_3bp_shiftC   <- "GTCACCAATCC---TGTCCCTAGTGGCCCCACTGTGGGGT"
 
 # shift CT 3bp to the left
-refseq_244bp_3bp_shiftCT   <- "TTTCTGTCACCAATCCT---GTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_100bp_3bp_shiftCT   <- "GTCACCAATCCT---GTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE150_3bp_shiftCT   <- "TTTCTGTCACCAATCCT---GTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE100_3bp_shiftCT   <- "GTCACCAATCCT---GTCCCTAGTGGCCCCACTGTGGGGT"
 
 # shift C 2bp to the left
-refseq_244bp_2bp_shiftC          <- "TTTTCTGTCACCAATCC--TGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_100bp_2bp_shiftC          <- "TGTCACCAATCC--TGTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE150_2bp_shiftC          <- "TTTTCTGTCACCAATCC--TGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE100_2bp_shiftC          <- "TGTCACCAATCC--TGTCCCTAGTGGCCCCACTGTGGGGT"
 
 # shift CT 2bp to the left
-refseq_244bp_2bp_shiftCT         <- "TTTTCTGTCACCAATCCT--GTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_100bp_2bp_shiftCT         <- "TGTCACCAATCCT--GTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE150_2bp_shiftCT         <- "TTTTCTGTCACCAATCCT--GTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE100_2bp_shiftCT         <- "TGTCACCAATCCT--GTCCCTAGTGGCCCCACTGTGGGGT"
 
 # shift C, CT, CTG, CTGT 4bp to the left
-refseq_244bp_4bp_shiftC          <- "TTCTGTCACCAATCC----TGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_244bp_4bp_shiftCT         <- "TTCTGTCACCAATCCT----GTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_244bp_4bp_shiftCTG        <- "TTCTGTCACCAATCCTG----TCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_244bp_4bp_shiftCTGT       <- "TTCTGTCACCAATCCTGT----CCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_100bp_4bp_shiftC          <- "TCACCAATCC----TGTCCCTAGTGGCCCCACTGTGGGGT"
-refseq_100bp_4bp_shiftCT         <- "TCACCAATCCT----GTCCCTAGTGGCCCCACTGTGGGGT"
-refseq_100bp_4bp_shiftCTG        <- "TCACCAATCCTG----TCCCTAGTGGCCCCACTGTGGGGT"
-refseq_100bp_4bp_shiftCTGT       <- "TCACCAATCCTGT----CCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE150_4bp_shiftC          <- "TTCTGTCACCAATCC----TGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE150_4bp_shiftCT         <- "TTCTGTCACCAATCCT----GTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE150_4bp_shiftCTG        <- "TTCTGTCACCAATCCTG----TCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE150_4bp_shiftCTGT       <- "TTCTGTCACCAATCCTGT----CCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE100_4bp_shiftC          <- "TCACCAATCC----TGTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE100_4bp_shiftCT         <- "TCACCAATCCT----GTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE100_4bp_shiftCTG        <- "TCACCAATCCTG----TCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE100_4bp_shiftCTGT       <- "TCACCAATCCTGT----CCCTAGTGGCCCCACTGTGGGGT"
 
 
 ## shift nucleotide on the left to the right
 
-#refseq_244bp_3bp                <- "TTTCTGTCACCAATC---CTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+#refseq_PE150_3bp                <- "TTTCTGTCACCAATC---CTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
 
 # shift TC 3bp to the right
-refseq_244bp_3bp_shiftTCright    <- "TTTCTGTCACCAA---TCCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_100bp_3bp_shiftTCright    <- "GTCACCAA---TCCTGTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE150_3bp_shiftTCright    <- "TTTCTGTCACCAA---TCCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE100_3bp_shiftTCright    <- "GTCACCAA---TCCTGTCCCTAGTGGCCCCACTGTGGGGT"
 
 # shift C 3bp to the right
-refseq_244bp_3bp_shiftCright    <- "TTTCTGTCACCAAT---CCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_100bp_3bp_shiftCright    <- "GTCACCAAT---CCTGTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE150_3bp_shiftCright    <- "TTTCTGTCACCAAT---CCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE100_3bp_shiftCright    <- "GTCACCAAT---CCTGTCCCTAGTGGCCCCACTGTGGGGT"
 
 # shift ATC 3bp to the right
-refseq_244bp_3bp_shiftATCright    <- "TTTCTGTCACCA---ATCCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_100bp_3bp_shiftATCright    <- "GTCACCA---ATCCTGTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE150_3bp_shiftATCright    <- "TTTCTGTCACCA---ATCCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE100_3bp_shiftATCright    <- "GTCACCA---ATCCTGTCCCTAGTGGCCCCACTGTGGGGT"
 
 
 # shift AATC 4bp to the right
-refseq_244bp_4bp_shiftAATCright    <- "TTCTGTCACC----AATCCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_100bp_4bp_shiftAATCright    <- "TCACC----AATCCTGTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE150_4bp_shiftAATCright    <- "TTCTGTCACC----AATCCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE100_4bp_shiftAATCright    <- "TCACC----AATCCTGTCCCTAGTGGCCCCACTGTGGGGT"
 
 # shift ATC 4bp to the right
-refseq_244bp_4bp_shiftATCright     <- "TTCTGTCACCA----ATCCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_100bp_4bp_shiftATCright     <- "TCACCA----ATCCTGTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE150_4bp_shiftATCright     <- "TTCTGTCACCA----ATCCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE100_4bp_shiftATCright     <- "TCACCA----ATCCTGTCCCTAGTGGCCCCACTGTGGGGT"
 
 # shift TC 4bp to the right
-refseq_244bp_4bp_shiftTCright      <- "TTCTGTCACCAA----TCCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_100bp_4bp_shiftTCright      <- "TCACCAA----TCCTGTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE150_4bp_shiftTCright      <- "TTCTGTCACCAA----TCCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE100_4bp_shiftTCright      <- "TCACCAA----TCCTGTCCCTAGTGGCCCCACTGTGGGGT"
 
 # shift C 4bp to the right
-refseq_244bp_4bp_shiftCright       <- "TTCTGTCACCAAT----CCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_100bp_4bp_shiftCright       <- "TCACCAAT----CCTGTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE150_4bp_shiftCright       <- "TTCTGTCACCAAT----CCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE100_4bp_shiftCright       <- "TCACCAAT----CCTGTCCCTAGTGGCCCCACTGTGGGGT"
 
 
 # shift TC 2bp to the right
-refseq_244bp_2bp_shiftTCright      <- "TTTTCTGTCACCAA--TCCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_100bp_2bp_shiftTCright      <- "TGTCACCAA--TCCTGTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE150_2bp_shiftTCright      <- "TTTTCTGTCACCAA--TCCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE100_2bp_shiftTCright      <- "TGTCACCAA--TCCTGTCCCTAGTGGCCCCACTGTGGGGT"
 
 # shift C 2bp to the right
-refseq_244bp_2bp_shiftCright       <- "TTTTCTGTCACCAAT--CCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
-refseq_100bp_2bp_shiftCright       <- "TGTCACCAAT--CCTGTCCCTAGTGGCCCCACTGTGGGGT"
+refseq_PE150_2bp_shiftCright       <- "TTTTCTGTCACCAAT--CCTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
+refseq_PE100_2bp_shiftCright       <- "TGTCACCAAT--CCTGTCCCTAGTGGCCCCACTGTGGGGT"
 
 
 # get frequencies of 3bp insertions around cutting site
@@ -101,7 +101,7 @@ refseq_100bp_2bp_shiftCright       <- "TGTCACCAAT--CCTGTCCCTAGTGGCCCCACTGTGGGGT"
 # 1) filter AF table by reference sequence with 3bp deletion at the cutting site
 # 2) add Event column to the AF table, which indicates the inserted sequences. Upstream and downstream sequences should be the same as the reference sequence.
 # 3) save the AF table with Event column to a file, and return an annotated AF table
-get_3bp_insertions_244bpAmp <- function(d, sample, reference_sequence){
+get_3bp_insertions_PE150 <- function(d, sample, reference_sequence){
 
     #reference_sequence <- "TTTCTGTCACCAATC---CTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
     d_inserted_3bp <- d %>% dplyr::filter(Reference==reference_sequence)
@@ -150,18 +150,18 @@ get_3bp_insertions_244bpAmp <- function(d, sample, reference_sequence){
         Event <- assign_event(x, reference_sequence)
     })
 
-    dir.create(file.path("myoutput",sample,reference_sequence), recursive=TRUE)
+    dir.create(file.path("output",sample,reference_sequence), recursive=TRUE)
 
     d_inserted_3bp <- d_inserted_3bp %>% dplyr::mutate(Class='3bp Insertion', reference_sequence=reference_sequence)
 
-    d_inserted_3bp %>% fwrite(file.path("myoutput",sample,reference_sequence,"3bp_insertions_AF_table.txt"), sep="\t")
+    d_inserted_3bp %>% fwrite(file.path("output",sample,reference_sequence,"3bp_insertions_AF_table.txt"), sep="\t")
 
     d_inserted_3bp
 
 }
 
 # get frequencies of 2bp insertions around cutting site
-get_2bp_insertions_244bpAmp <- function(d, sample, reference_sequence){
+get_2bp_insertions_PE150 <- function(d, sample, reference_sequence){
 
     #reference_sequence <- "TTTTCTGTCACCAATC--CTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
     d_inserted_2bp <- d %>% dplyr::filter(Reference==reference_sequence)
@@ -210,18 +210,18 @@ get_2bp_insertions_244bpAmp <- function(d, sample, reference_sequence){
         Event <- assign_event(x, reference_sequence)
     })
 
-    dir.create(file.path("myoutput",sample,reference_sequence), recursive=TRUE)
+    dir.create(file.path("output",sample,reference_sequence), recursive=TRUE)
 
     d_inserted_2bp <- d_inserted_2bp %>% dplyr::mutate(Class='2bp Insertion', reference_sequence=reference_sequence)
 
-    d_inserted_2bp %>% fwrite(file.path("myoutput",sample,reference_sequence,"2bp_insertions_AF_table.txt"), sep="\t")
+    d_inserted_2bp %>% fwrite(file.path("output",sample,reference_sequence,"2bp_insertions_AF_table.txt"), sep="\t")
 
     d_inserted_2bp
 
 }
 
 # get frequencies of 4bp insertions around cutting site
-get_4bp_insertions_244bpAmp <- function(d, sample, reference_sequence){
+get_4bp_insertions_PE150 <- function(d, sample, reference_sequence){
 
     #reference_sequence <- "TTCTGTCACCAATC----CTGTCCCTAGTGGCCCCACTGTGGGGTGGAGG"
     d_inserted_4bp <- d %>% dplyr::filter(Reference==reference_sequence)
@@ -270,54 +270,54 @@ get_4bp_insertions_244bpAmp <- function(d, sample, reference_sequence){
         Event <- assign_event(x, reference_sequence)
     })
 
-    dir.create(file.path("myoutput",sample,reference_sequence), recursive=TRUE)
+    dir.create(file.path("output",sample,reference_sequence), recursive=TRUE)
 
     d_inserted_4bp <- d_inserted_4bp %>% dplyr::mutate(Class='4bp Insertion', reference_sequence=reference_sequence)
 
-    d_inserted_4bp %>% fwrite(file.path("myoutput",sample,reference_sequence,"4bp_insertions_AF_table.txt"), sep="\t")
+    d_inserted_4bp %>% fwrite(file.path("output",sample,reference_sequence,"4bp_insertions_AF_table.txt"), sep="\t")
 
     d_inserted_4bp
 
 }
 
-# get frequencies of 3bp, 2bp, and 4bp insertions around cutting site for 244bp amplicon samples
-get_insertions_244bpAmp <- function(f){
+# get frequencies of 3bp, 2bp, and 4bp insertions around cutting site for PE150 amplicon samples
+get_insertions_PE150 <- function(f){
     d <- fread(f)
     sample=d[1,]$Sample
     print(sample)
-    d_inserted_3bp <- get_3bp_insertions_244bpAmp(d, sample, refseq_244bp_3bp); if(!is.null(d_inserted_3bp)){ d_inserted_3bp <- d_inserted_3bp %>% mutate(correction="at cutting site") }
-    d_inserted_2bp <- get_2bp_insertions_244bpAmp(d, sample, refseq_244bp_2bp); if(!is.null(d_inserted_2bp)){ d_inserted_2bp <- d_inserted_2bp %>% mutate(correction="at cutting site") }
-    d_inserted_4bp <- get_4bp_insertions_244bpAmp(d, sample, refseq_244bp_4bp); if(!is.null(d_inserted_4bp)){ d_inserted_4bp <- d_inserted_4bp  %>% mutate(correction="at cutting site") }
+    d_inserted_3bp <- get_3bp_insertions_PE150(d, sample, refseq_PE150_3bp); if(!is.null(d_inserted_3bp)){ d_inserted_3bp <- d_inserted_3bp %>% mutate(correction="at cutting site") }
+    d_inserted_2bp <- get_2bp_insertions_PE150(d, sample, refseq_PE150_2bp); if(!is.null(d_inserted_2bp)){ d_inserted_2bp <- d_inserted_2bp %>% mutate(correction="at cutting site") }
+    d_inserted_4bp <- get_4bp_insertions_PE150(d, sample, refseq_PE150_4bp); if(!is.null(d_inserted_4bp)){ d_inserted_4bp <- d_inserted_4bp  %>% mutate(correction="at cutting site") }
 
     # shift the right nucleotide to the left
 
-    d_inserted_3bp_shiftCTG <- get_3bp_insertions_244bpAmp(d, sample, refseq_244bp_3bp_shiftCTG); if(!is.null(d_inserted_3bp_shiftCTG)){ d_inserted_3bp_shiftCTG <- d_inserted_3bp_shiftCTG %>% mutate(correction="shift CTG 3bp to the left") }
+    d_inserted_3bp_shiftCTG <- get_3bp_insertions_PE150(d, sample, refseq_PE150_3bp_shiftCTG); if(!is.null(d_inserted_3bp_shiftCTG)){ d_inserted_3bp_shiftCTG <- d_inserted_3bp_shiftCTG %>% mutate(correction="shift CTG 3bp to the left") }
 
-    d_inserted_3bp_shiftC <- get_3bp_insertions_244bpAmp(d, sample, refseq_244bp_3bp_shiftC); if(!is.null(d_inserted_3bp_shiftC)){ d_inserted_3bp_shiftC <- d_inserted_3bp_shiftC %>% mutate(correction="shift C 3bp to the left") }
+    d_inserted_3bp_shiftC <- get_3bp_insertions_PE150(d, sample, refseq_PE150_3bp_shiftC); if(!is.null(d_inserted_3bp_shiftC)){ d_inserted_3bp_shiftC <- d_inserted_3bp_shiftC %>% mutate(correction="shift C 3bp to the left") }
 
-    d_inserted_3bp_shiftCT <- get_3bp_insertions_244bpAmp(d, sample, refseq_244bp_3bp_shiftCT); if(!is.null(d_inserted_3bp_shiftCT)){ d_inserted_3bp_shiftCT <- d_inserted_3bp_shiftCT %>% mutate(correction="shift CT 3bp to the left") }
+    d_inserted_3bp_shiftCT <- get_3bp_insertions_PE150(d, sample, refseq_PE150_3bp_shiftCT); if(!is.null(d_inserted_3bp_shiftCT)){ d_inserted_3bp_shiftCT <- d_inserted_3bp_shiftCT %>% mutate(correction="shift CT 3bp to the left") }
 
-    d_inserted_2bp_shiftC <- get_2bp_insertions_244bpAmp(d, sample, refseq_244bp_2bp_shiftC); if(!is.null(d_inserted_2bp_shiftC)){ d_inserted_2bp_shiftC <- d_inserted_2bp_shiftC %>% mutate(correction="shift C 2bp to the left") }
+    d_inserted_2bp_shiftC <- get_2bp_insertions_PE150(d, sample, refseq_PE150_2bp_shiftC); if(!is.null(d_inserted_2bp_shiftC)){ d_inserted_2bp_shiftC <- d_inserted_2bp_shiftC %>% mutate(correction="shift C 2bp to the left") }
 
-    d_inserted_2bp_shiftCT <- get_2bp_insertions_244bpAmp(d, sample, refseq_244bp_2bp_shiftCT); if(!is.null(d_inserted_2bp_shiftCT)){ d_inserted_2bp_shiftCT <- d_inserted_2bp_shiftCT %>% mutate(correction="shift CT 2bp to the left") }
+    d_inserted_2bp_shiftCT <- get_2bp_insertions_PE150(d, sample, refseq_PE150_2bp_shiftCT); if(!is.null(d_inserted_2bp_shiftCT)){ d_inserted_2bp_shiftCT <- d_inserted_2bp_shiftCT %>% mutate(correction="shift CT 2bp to the left") }
 
-    d_inserted_4bp_shiftC <- get_4bp_insertions_244bpAmp(d, sample, refseq_244bp_4bp_shiftC); if(!is.null(d_inserted_4bp_shiftC)){ d_inserted_4bp_shiftC <- d_inserted_4bp_shiftC %>% mutate(correction="shift C 4bp to the left") }
-    d_inserted_4bp_shiftCT <- get_4bp_insertions_244bpAmp(d, sample, refseq_244bp_4bp_shiftCT); if(!is.null(d_inserted_4bp_shiftCT)){ d_inserted_4bp_shiftCT <- d_inserted_4bp_shiftCT %>% mutate(correction="shift CT 4bp to the left") }
-    d_inserted_4bp_shiftCTG <- get_4bp_insertions_244bpAmp(d, sample, refseq_244bp_4bp_shiftCTG); if(!is.null(d_inserted_4bp_shiftCTG)){ d_inserted_4bp_shiftCTG <- d_inserted_4bp_shiftCTG %>% mutate(correction="shift CTG 4bp to the left") }
-    d_inserted_4bp_shiftCTGT <- get_4bp_insertions_244bpAmp(d, sample, refseq_244bp_4bp_shiftCTGT); if(!is.null(d_inserted_4bp_shiftCTGT)){ d_inserted_4bp_shiftCTGT <- d_inserted_4bp_shiftCTGT %>% mutate(correction="shift CTGT 4bp to the left") }
+    d_inserted_4bp_shiftC <- get_4bp_insertions_PE150(d, sample, refseq_PE150_4bp_shiftC); if(!is.null(d_inserted_4bp_shiftC)){ d_inserted_4bp_shiftC <- d_inserted_4bp_shiftC %>% mutate(correction="shift C 4bp to the left") }
+    d_inserted_4bp_shiftCT <- get_4bp_insertions_PE150(d, sample, refseq_PE150_4bp_shiftCT); if(!is.null(d_inserted_4bp_shiftCT)){ d_inserted_4bp_shiftCT <- d_inserted_4bp_shiftCT %>% mutate(correction="shift CT 4bp to the left") }
+    d_inserted_4bp_shiftCTG <- get_4bp_insertions_PE150(d, sample, refseq_PE150_4bp_shiftCTG); if(!is.null(d_inserted_4bp_shiftCTG)){ d_inserted_4bp_shiftCTG <- d_inserted_4bp_shiftCTG %>% mutate(correction="shift CTG 4bp to the left") }
+    d_inserted_4bp_shiftCTGT <- get_4bp_insertions_PE150(d, sample, refseq_PE150_4bp_shiftCTGT); if(!is.null(d_inserted_4bp_shiftCTGT)){ d_inserted_4bp_shiftCTGT <- d_inserted_4bp_shiftCTGT %>% mutate(correction="shift CTGT 4bp to the left") }
 
     # shift the left nucleotide to the right
-    d_inserted_3bp_shiftTCright <- get_3bp_insertions_244bpAmp(d, sample, refseq_244bp_3bp_shiftTCright); if(!is.null(d_inserted_3bp_shiftTCright)){ d_inserted_3bp_shiftTCright <- d_inserted_3bp_shiftTCright %>% mutate(correction="shift TC 3bp to the right") }
-    d_inserted_3bp_shiftCright <- get_3bp_insertions_244bpAmp(d, sample, refseq_244bp_3bp_shiftCright); if(!is.null(d_inserted_3bp_shiftCright)){ d_inserted_3bp_shiftCright <- d_inserted_3bp_shiftCright %>% mutate(correction="shift C 3bp to the right") }
-    d_inserted_3bp_shiftATCright <- get_3bp_insertions_244bpAmp(d, sample, refseq_244bp_3bp_shiftATCright); if(!is.null(d_inserted_3bp_shiftATCright)){ d_inserted_3bp_shiftATCright <- d_inserted_3bp_shiftATCright %>% mutate(correction="shift ATC 3bp to the right") }
+    d_inserted_3bp_shiftTCright <- get_3bp_insertions_PE150(d, sample, refseq_PE150_3bp_shiftTCright); if(!is.null(d_inserted_3bp_shiftTCright)){ d_inserted_3bp_shiftTCright <- d_inserted_3bp_shiftTCright %>% mutate(correction="shift TC 3bp to the right") }
+    d_inserted_3bp_shiftCright <- get_3bp_insertions_PE150(d, sample, refseq_PE150_3bp_shiftCright); if(!is.null(d_inserted_3bp_shiftCright)){ d_inserted_3bp_shiftCright <- d_inserted_3bp_shiftCright %>% mutate(correction="shift C 3bp to the right") }
+    d_inserted_3bp_shiftATCright <- get_3bp_insertions_PE150(d, sample, refseq_PE150_3bp_shiftATCright); if(!is.null(d_inserted_3bp_shiftATCright)){ d_inserted_3bp_shiftATCright <- d_inserted_3bp_shiftATCright %>% mutate(correction="shift ATC 3bp to the right") }
 
-    d_inserted_4bp_shiftAATCright <- get_4bp_insertions_244bpAmp(d, sample, refseq_244bp_4bp_shiftAATCright); if(!is.null(d_inserted_4bp_shiftAATCright)){ d_inserted_4bp_shiftAATCright <- d_inserted_4bp_shiftAATCright %>% mutate(correction="shift AATC 4bp to the right") }
-    d_inserted_4bp_shiftATCright <- get_4bp_insertions_244bpAmp(d, sample, refseq_244bp_4bp_shiftATCright); if(!is.null(d_inserted_4bp_shiftATCright)){ d_inserted_4bp_shiftATCright <- d_inserted_4bp_shiftATCright %>% mutate(correction="shift ATC 4bp to the right") }
-    d_inserted_4bp_shiftTCright <- get_4bp_insertions_244bpAmp(d, sample, refseq_244bp_4bp_shiftTCright); if(!is.null(d_inserted_4bp_shiftTCright)){ d_inserted_4bp_shiftTCright <- d_inserted_4bp_shiftTCright %>% mutate(correction="shift TC 4bp to the right") }
-    d_inserted_4bp_shiftCright <- get_4bp_insertions_244bpAmp(d, sample, refseq_244bp_4bp_shiftCright); if(!is.null(d_inserted_4bp_shiftCright)){ d_inserted_4bp_shiftCright <- d_inserted_4bp_shiftCright %>% mutate(correction="shift C 4bp to the right") }
+    d_inserted_4bp_shiftAATCright <- get_4bp_insertions_PE150(d, sample, refseq_PE150_4bp_shiftAATCright); if(!is.null(d_inserted_4bp_shiftAATCright)){ d_inserted_4bp_shiftAATCright <- d_inserted_4bp_shiftAATCright %>% mutate(correction="shift AATC 4bp to the right") }
+    d_inserted_4bp_shiftATCright <- get_4bp_insertions_PE150(d, sample, refseq_PE150_4bp_shiftATCright); if(!is.null(d_inserted_4bp_shiftATCright)){ d_inserted_4bp_shiftATCright <- d_inserted_4bp_shiftATCright %>% mutate(correction="shift ATC 4bp to the right") }
+    d_inserted_4bp_shiftTCright <- get_4bp_insertions_PE150(d, sample, refseq_PE150_4bp_shiftTCright); if(!is.null(d_inserted_4bp_shiftTCright)){ d_inserted_4bp_shiftTCright <- d_inserted_4bp_shiftTCright %>% mutate(correction="shift TC 4bp to the right") }
+    d_inserted_4bp_shiftCright <- get_4bp_insertions_PE150(d, sample, refseq_PE150_4bp_shiftCright); if(!is.null(d_inserted_4bp_shiftCright)){ d_inserted_4bp_shiftCright <- d_inserted_4bp_shiftCright %>% mutate(correction="shift C 4bp to the right") }
 
-    d_inserted_2bp_shiftTCright <- get_2bp_insertions_244bpAmp(d, sample, refseq_244bp_2bp_shiftTCright); if(!is.null(d_inserted_2bp_shiftTCright)){ d_inserted_2bp_shiftTCright <- d_inserted_2bp_shiftTCright %>% mutate(correction="shift TC 2bp to the right") }
-    d_inserted_2bp_shiftCright <- get_2bp_insertions_244bpAmp(d, sample, refseq_244bp_2bp_shiftCright); if(!is.null(d_inserted_2bp_shiftCright)){ d_inserted_2bp_shiftCright <- d_inserted_2bp_shiftCright %>% mutate(correction="shift C 2bp to the right") }
+    d_inserted_2bp_shiftTCright <- get_2bp_insertions_PE150(d, sample, refseq_PE150_2bp_shiftTCright); if(!is.null(d_inserted_2bp_shiftTCright)){ d_inserted_2bp_shiftTCright <- d_inserted_2bp_shiftTCright %>% mutate(correction="shift TC 2bp to the right") }
+    d_inserted_2bp_shiftCright <- get_2bp_insertions_PE150(d, sample, refseq_PE150_2bp_shiftCright); if(!is.null(d_inserted_2bp_shiftCright)){ d_inserted_2bp_shiftCright <- d_inserted_2bp_shiftCright %>% mutate(correction="shift C 2bp to the right") }
 
     inserted <- rbind(d_inserted_3bp, d_inserted_2bp, d_inserted_4bp, 
         d_inserted_3bp_shiftCTG,d_inserted_3bp_shiftC,d_inserted_3bp_shiftCT,
@@ -330,8 +330,8 @@ get_insertions_244bpAmp <- function(f){
 }
 
 
-# get frequencies of 2bp insertions around cutting site for 100bp amplicon samples
-get_3bp_insertions_100bpAmp <- function(d, sample, reference_sequence){
+# get frequencies of 2bp insertions around cutting site for PE100 amplicon samples
+get_3bp_insertions_PE100 <- function(d, sample, reference_sequence){
 
     #reference_sequence <- "GTCACCAATC---CTGTCCCTAGTGGCCCCACTGTGGGGT"
     d_inserted_3bp <- d %>% dplyr::filter(Reference==reference_sequence)
@@ -380,18 +380,18 @@ get_3bp_insertions_100bpAmp <- function(d, sample, reference_sequence){
         Event <- assign_event(x, reference_sequence)
     })
 
-    dir.create(file.path("myoutput",sample,reference_sequence), recursive=TRUE)
+    dir.create(file.path("output",sample,reference_sequence), recursive=TRUE)
 
     d_inserted_3bp <- d_inserted_3bp %>% dplyr::mutate(Class='3bp Insertion', reference_sequence=reference_sequence)
 
-    d_inserted_3bp %>% fwrite(file.path("myoutput",sample,reference_sequence,"3bp_insertions_AF_table.txt"), sep="\t")
+    d_inserted_3bp %>% fwrite(file.path("output",sample,reference_sequence,"3bp_insertions_AF_table.txt"), sep="\t")
 
     d_inserted_3bp
 
 }
 
-# get frequencies of 2bp insertions around cutting site for 100bp amplicon samples
-get_2bp_insertions_100bpAmp <- function(d, sample, reference_sequence){
+# get frequencies of 2bp insertions around cutting site for PE100 amplicon samples
+get_2bp_insertions_PE100 <- function(d, sample, reference_sequence){
 
     #reference_sequence <- "TGTCACCAATC--CTGTCCCTAGTGGCCCCACTGTGGGGT"
     d_inserted_2bp <- d %>% dplyr::filter(Reference==reference_sequence)
@@ -440,18 +440,18 @@ get_2bp_insertions_100bpAmp <- function(d, sample, reference_sequence){
         Event <- assign_event(x, reference_sequence)
     })
 
-    dir.create(file.path("myoutput",sample,reference_sequence), recursive=TRUE)
+    dir.create(file.path("output",sample,reference_sequence), recursive=TRUE)
 
     d_inserted_2bp <- d_inserted_2bp %>% dplyr::mutate(Class='2bp Insertion', reference_sequence=reference_sequence)
 
-    d_inserted_2bp %>% fwrite(file.path("myoutput",sample,reference_sequence,"2bp_insertions_AF_table.txt"), sep="\t")
+    d_inserted_2bp %>% fwrite(file.path("output",sample,reference_sequence,"2bp_insertions_AF_table.txt"), sep="\t")
 
     d_inserted_2bp
 
 }
 
-# get frequencies of 4bp insertions around cutting site for 100bp amplicon samples
-get_4bp_insertions_100bpAmp <- function(d, sample, reference_sequence){
+# get frequencies of 4bp insertions around cutting site for PE100 amplicon samples
+get_4bp_insertions_PE100 <- function(d, sample, reference_sequence){
 
     #reference_sequence <- "TCACCAATC----CTGTCCCTAGTGGCCCCACTGTGGGGT"
     d_inserted_4bp <- d %>% dplyr::filter(Reference==reference_sequence)
@@ -500,54 +500,54 @@ get_4bp_insertions_100bpAmp <- function(d, sample, reference_sequence){
         Event <- assign_event(x, reference_sequence)
     })
 
-    dir.create(file.path("myoutput",sample,reference_sequence), recursive=TRUE)
+    dir.create(file.path("output",sample,reference_sequence), recursive=TRUE)
 
     d_inserted_4bp <- d_inserted_4bp %>% dplyr::mutate(Class='4bp Insertion', reference_sequence=reference_sequence)
 
-    d_inserted_4bp %>% fwrite(file.path("myoutput",sample,reference_sequence,"4bp_insertions_AF_table.txt"), sep="\t")
+    d_inserted_4bp %>% fwrite(file.path("output",sample,reference_sequence,"4bp_insertions_AF_table.txt"), sep="\t")
 
     d_inserted_4bp
 
 }
 
-# get frequencies of 3bp, 2bp, and 4bp insertions around cutting site for 100bp amplicon samples
-get_insertions_100bpAmp <- function(f){
+# get frequencies of 3bp, 2bp, and 4bp insertions around cutting site for PE100 amplicon samples
+get_insertions_PE100 <- function(f){
     d <- fread(f)
     sample=d[1,]$Sample
     print(sample)
-    d_inserted_3bp <- get_3bp_insertions_100bpAmp(d, sample, refseq_100bp_3bp); if(!is.null(d_inserted_3bp)){ d_inserted_3bp <- d_inserted_3bp %>% mutate(correction="at cutting site") }
-    d_inserted_2bp <- get_2bp_insertions_100bpAmp(d, sample, refseq_100bp_2bp); if(!is.null(d_inserted_2bp)){ d_inserted_2bp <- d_inserted_2bp %>% mutate(correction="at cutting site") }
-    d_inserted_4bp <- get_4bp_insertions_100bpAmp(d, sample, refseq_100bp_4bp); if(!is.null(d_inserted_4bp)){ d_inserted_4bp <- d_inserted_4bp  %>% mutate(correction="at cutting site") }
+    d_inserted_3bp <- get_3bp_insertions_PE100(d, sample, refseq_PE100_3bp); if(!is.null(d_inserted_3bp)){ d_inserted_3bp <- d_inserted_3bp %>% mutate(correction="at cutting site") }
+    d_inserted_2bp <- get_2bp_insertions_PE100(d, sample, refseq_PE100_2bp); if(!is.null(d_inserted_2bp)){ d_inserted_2bp <- d_inserted_2bp %>% mutate(correction="at cutting site") }
+    d_inserted_4bp <- get_4bp_insertions_PE100(d, sample, refseq_PE100_4bp); if(!is.null(d_inserted_4bp)){ d_inserted_4bp <- d_inserted_4bp  %>% mutate(correction="at cutting site") }
 
     # shift the right nucleotide to the left
 
-    d_inserted_3bp_shiftCTG <- get_3bp_insertions_100bpAmp(d, sample, refseq_100bp_3bp_shiftCTG); if(!is.null(d_inserted_3bp_shiftCTG)){ d_inserted_3bp_shiftCTG <- d_inserted_3bp_shiftCTG %>% mutate(correction="shift CTG 3bp to the left") }
+    d_inserted_3bp_shiftCTG <- get_3bp_insertions_PE100(d, sample, refseq_PE100_3bp_shiftCTG); if(!is.null(d_inserted_3bp_shiftCTG)){ d_inserted_3bp_shiftCTG <- d_inserted_3bp_shiftCTG %>% mutate(correction="shift CTG 3bp to the left") }
 
-    d_inserted_3bp_shiftC <- get_3bp_insertions_100bpAmp(d, sample, refseq_100bp_3bp_shiftC); if(!is.null(d_inserted_3bp_shiftC)){ d_inserted_3bp_shiftC <- d_inserted_3bp_shiftC %>% mutate(correction="shift C 3bp to the left") }
+    d_inserted_3bp_shiftC <- get_3bp_insertions_PE100(d, sample, refseq_PE100_3bp_shiftC); if(!is.null(d_inserted_3bp_shiftC)){ d_inserted_3bp_shiftC <- d_inserted_3bp_shiftC %>% mutate(correction="shift C 3bp to the left") }
 
-    d_inserted_3bp_shiftCT <- get_3bp_insertions_100bpAmp(d, sample, refseq_100bp_3bp_shiftCT); if(!is.null(d_inserted_3bp_shiftCT)){ d_inserted_3bp_shiftCT <- d_inserted_3bp_shiftCT %>% mutate(correction="shift CT 3bp to the left") }
+    d_inserted_3bp_shiftCT <- get_3bp_insertions_PE100(d, sample, refseq_PE100_3bp_shiftCT); if(!is.null(d_inserted_3bp_shiftCT)){ d_inserted_3bp_shiftCT <- d_inserted_3bp_shiftCT %>% mutate(correction="shift CT 3bp to the left") }
 
-    d_inserted_2bp_shiftC <- get_2bp_insertions_100bpAmp(d, sample, refseq_100bp_2bp_shiftC); if(!is.null(d_inserted_2bp_shiftC)){ d_inserted_2bp_shiftC <- d_inserted_2bp_shiftC %>% mutate(correction="shift C 2bp to the left") }
+    d_inserted_2bp_shiftC <- get_2bp_insertions_PE100(d, sample, refseq_PE100_2bp_shiftC); if(!is.null(d_inserted_2bp_shiftC)){ d_inserted_2bp_shiftC <- d_inserted_2bp_shiftC %>% mutate(correction="shift C 2bp to the left") }
 
-    d_inserted_2bp_shiftCT <- get_2bp_insertions_100bpAmp(d, sample, refseq_100bp_2bp_shiftCT); if(!is.null(d_inserted_2bp_shiftCT)){ d_inserted_2bp_shiftCT <- d_inserted_2bp_shiftCT %>% mutate(correction="shift CT 2bp to the left") }
+    d_inserted_2bp_shiftCT <- get_2bp_insertions_PE100(d, sample, refseq_PE100_2bp_shiftCT); if(!is.null(d_inserted_2bp_shiftCT)){ d_inserted_2bp_shiftCT <- d_inserted_2bp_shiftCT %>% mutate(correction="shift CT 2bp to the left") }
 
-    d_inserted_4bp_shiftC <- get_4bp_insertions_100bpAmp(d, sample, refseq_100bp_4bp_shiftC); if(!is.null(d_inserted_4bp_shiftC)){ d_inserted_4bp_shiftC <- d_inserted_4bp_shiftC %>% mutate(correction="shift C 4bp to the left") }
-    d_inserted_4bp_shiftCT <- get_4bp_insertions_100bpAmp(d, sample, refseq_100bp_4bp_shiftCT); if(!is.null(d_inserted_4bp_shiftCT)){ d_inserted_4bp_shiftCT <- d_inserted_4bp_shiftCT %>% mutate(correction="shift CT 4bp to the left") }
-    d_inserted_4bp_shiftCTG <- get_4bp_insertions_100bpAmp(d, sample, refseq_100bp_4bp_shiftCTG); if(!is.null(d_inserted_4bp_shiftCTG)){ d_inserted_4bp_shiftCTG <- d_inserted_4bp_shiftCTG %>% mutate(correction="shift CTG 4bp to the left") }
-    d_inserted_4bp_shiftCTGT <- get_4bp_insertions_100bpAmp(d, sample, refseq_100bp_4bp_shiftCTGT); if(!is.null(d_inserted_4bp_shiftCTGT)){ d_inserted_4bp_shiftCTGT <- d_inserted_4bp_shiftCTGT %>% mutate(correction="shift CTGT 4bp to the left") }
+    d_inserted_4bp_shiftC <- get_4bp_insertions_PE100(d, sample, refseq_PE100_4bp_shiftC); if(!is.null(d_inserted_4bp_shiftC)){ d_inserted_4bp_shiftC <- d_inserted_4bp_shiftC %>% mutate(correction="shift C 4bp to the left") }
+    d_inserted_4bp_shiftCT <- get_4bp_insertions_PE100(d, sample, refseq_PE100_4bp_shiftCT); if(!is.null(d_inserted_4bp_shiftCT)){ d_inserted_4bp_shiftCT <- d_inserted_4bp_shiftCT %>% mutate(correction="shift CT 4bp to the left") }
+    d_inserted_4bp_shiftCTG <- get_4bp_insertions_PE100(d, sample, refseq_PE100_4bp_shiftCTG); if(!is.null(d_inserted_4bp_shiftCTG)){ d_inserted_4bp_shiftCTG <- d_inserted_4bp_shiftCTG %>% mutate(correction="shift CTG 4bp to the left") }
+    d_inserted_4bp_shiftCTGT <- get_4bp_insertions_PE100(d, sample, refseq_PE100_4bp_shiftCTGT); if(!is.null(d_inserted_4bp_shiftCTGT)){ d_inserted_4bp_shiftCTGT <- d_inserted_4bp_shiftCTGT %>% mutate(correction="shift CTGT 4bp to the left") }
 
     # shift the left nucleotide to the right
-    d_inserted_3bp_shiftTCright <- get_3bp_insertions_100bpAmp(d, sample, refseq_100bp_3bp_shiftTCright); if(!is.null(d_inserted_3bp_shiftTCright)){ d_inserted_3bp_shiftTCright <- d_inserted_3bp_shiftTCright %>% mutate(correction="shift TC 3bp to the right") }
-    d_inserted_3bp_shiftCright <- get_3bp_insertions_100bpAmp(d, sample, refseq_100bp_3bp_shiftCright); if(!is.null(d_inserted_3bp_shiftCright)){ d_inserted_3bp_shiftCright <- d_inserted_3bp_shiftCright %>% mutate(correction="shift C 3bp to the right") }
-    d_inserted_3bp_shiftATCright <- get_3bp_insertions_100bpAmp(d, sample, refseq_100bp_3bp_shiftATCright); if(!is.null(d_inserted_3bp_shiftATCright)){ d_inserted_3bp_shiftATCright <- d_inserted_3bp_shiftATCright %>% mutate(correction="shift ATC 3bp to the right") }
+    d_inserted_3bp_shiftTCright <- get_3bp_insertions_PE100(d, sample, refseq_PE100_3bp_shiftTCright); if(!is.null(d_inserted_3bp_shiftTCright)){ d_inserted_3bp_shiftTCright <- d_inserted_3bp_shiftTCright %>% mutate(correction="shift TC 3bp to the right") }
+    d_inserted_3bp_shiftCright <- get_3bp_insertions_PE100(d, sample, refseq_PE100_3bp_shiftCright); if(!is.null(d_inserted_3bp_shiftCright)){ d_inserted_3bp_shiftCright <- d_inserted_3bp_shiftCright %>% mutate(correction="shift C 3bp to the right") }
+    d_inserted_3bp_shiftATCright <- get_3bp_insertions_PE100(d, sample, refseq_PE100_3bp_shiftATCright); if(!is.null(d_inserted_3bp_shiftATCright)){ d_inserted_3bp_shiftATCright <- d_inserted_3bp_shiftATCright %>% mutate(correction="shift ATC 3bp to the right") }
 
-    d_inserted_4bp_shiftAATCright <- get_4bp_insertions_100bpAmp(d, sample, refseq_100bp_4bp_shiftAATCright); if(!is.null(d_inserted_4bp_shiftAATCright)){ d_inserted_4bp_shiftAATCright <- d_inserted_4bp_shiftAATCright %>% mutate(correction="shift AATC 4bp to the right") }
-    d_inserted_4bp_shiftATCright <- get_4bp_insertions_100bpAmp(d, sample, refseq_100bp_4bp_shiftATCright); if(!is.null(d_inserted_4bp_shiftATCright)){ d_inserted_4bp_shiftATCright <- d_inserted_4bp_shiftATCright %>% mutate(correction="shift ATC 4bp to the right") }
-    d_inserted_4bp_shiftTCright <- get_4bp_insertions_100bpAmp(d, sample, refseq_100bp_4bp_shiftTCright); if(!is.null(d_inserted_4bp_shiftTCright)){ d_inserted_4bp_shiftTCright <- d_inserted_4bp_shiftTCright %>% mutate(correction="shift TC 4bp to the right") }
-    d_inserted_4bp_shiftCright <- get_4bp_insertions_100bpAmp(d, sample, refseq_100bp_4bp_shiftCright); if(!is.null(d_inserted_4bp_shiftCright)){ d_inserted_4bp_shiftCright <- d_inserted_4bp_shiftCright %>% mutate(correction="shift C 4bp to the right") }
+    d_inserted_4bp_shiftAATCright <- get_4bp_insertions_PE100(d, sample, refseq_PE100_4bp_shiftAATCright); if(!is.null(d_inserted_4bp_shiftAATCright)){ d_inserted_4bp_shiftAATCright <- d_inserted_4bp_shiftAATCright %>% mutate(correction="shift AATC 4bp to the right") }
+    d_inserted_4bp_shiftATCright <- get_4bp_insertions_PE100(d, sample, refseq_PE100_4bp_shiftATCright); if(!is.null(d_inserted_4bp_shiftATCright)){ d_inserted_4bp_shiftATCright <- d_inserted_4bp_shiftATCright %>% mutate(correction="shift ATC 4bp to the right") }
+    d_inserted_4bp_shiftTCright <- get_4bp_insertions_PE100(d, sample, refseq_PE100_4bp_shiftTCright); if(!is.null(d_inserted_4bp_shiftTCright)){ d_inserted_4bp_shiftTCright <- d_inserted_4bp_shiftTCright %>% mutate(correction="shift TC 4bp to the right") }
+    d_inserted_4bp_shiftCright <- get_4bp_insertions_PE100(d, sample, refseq_PE100_4bp_shiftCright); if(!is.null(d_inserted_4bp_shiftCright)){ d_inserted_4bp_shiftCright <- d_inserted_4bp_shiftCright %>% mutate(correction="shift C 4bp to the right") }
 
-    d_inserted_2bp_shiftTCright <- get_2bp_insertions_100bpAmp(d, sample, refseq_100bp_2bp_shiftTCright); if(!is.null(d_inserted_2bp_shiftTCright)){ d_inserted_2bp_shiftTCright <- d_inserted_2bp_shiftTCright %>% mutate(correction="shift TC 2bp to the right") }
-    d_inserted_2bp_shiftCright <- get_2bp_insertions_100bpAmp(d, sample, refseq_100bp_2bp_shiftCright); if(!is.null(d_inserted_2bp_shiftCright)){ d_inserted_2bp_shiftCright <- d_inserted_2bp_shiftCright %>% mutate(correction="shift C 2bp to the right") }
+    d_inserted_2bp_shiftTCright <- get_2bp_insertions_PE100(d, sample, refseq_PE100_2bp_shiftTCright); if(!is.null(d_inserted_2bp_shiftTCright)){ d_inserted_2bp_shiftTCright <- d_inserted_2bp_shiftTCright %>% mutate(correction="shift TC 2bp to the right") }
+    d_inserted_2bp_shiftCright <- get_2bp_insertions_PE100(d, sample, refseq_PE100_2bp_shiftCright); if(!is.null(d_inserted_2bp_shiftCright)){ d_inserted_2bp_shiftCright <- d_inserted_2bp_shiftCright %>% mutate(correction="shift C 2bp to the right") }
 
 
     inserted <- rbind(d_inserted_3bp, d_inserted_2bp, d_inserted_4bp, 
@@ -563,26 +563,15 @@ get_insertions_100bpAmp <- function(f){
 
 main <- function(){
 
-    setwd("/home/zhuy1/my_projects_nrlab/Manisha_RNA_templated_repair/analysis/crispr_3bp_2bp_4bp/")
-
-    # an example
-    #f <- "output_juber_fastq_cleaned_244bp/C279a_Hek293T_siNT_C-AF-table.txt"
-    #inserted <- get_insertions_244bpAmp(f)
-
-    # there is an issue on Event variable, some are list, for example, this one
-    # Found the issue, some are empty, so Event variable goes to a list
-    #f="/lila/data/riazlab/projects/zhuy1/my_projects/Manisha_RNA_templated_repair/analysis/crispr_3bp_2bp_4bp/output_juber_fastq_cleaned_244bp/C285a_Hek293T_siNT_pMJ119-AF-table.txt"
-    #inserted <- get_insertions_244bpAmp(f)
-
-    # get insertions for all samples with 244bp amplicon
-    # used 3 references: refseq_244bp, refseq_244bp_shiftCTG, refseq_244bp_shiftC
-    filelist <- fread("AF_table_244bpAmp_path.txt", header=FALSE)
-    inserted_1 <- do.call(rbind,lapply(filelist$V1, get_insertions_244bpAmp))
+    # get insertions for all samples with PE150 amplicon
+    # used 3 references: refseq_PE150, refseq_PE150_shiftCTG, refseq_PE150_shiftC
+    filelist <- fread("AF_table_PE150_path.txt", header=FALSE)
+    inserted_1 <- do.call(rbind,lapply(filelist$V1, get_insertions_PE150))
  
-    # get insertions for all samples with 100bp amplicon
-    # used 3 references: refseq_100bp, refseq_100bp_shiftCTG, refseq_100bp_shiftC
-    filelist <- fread("AF_table_100bpAmp_path.txt", header=FALSE)
-    inserted_2 <- do.call(rbind,lapply(filelist$V1, get_insertions_100bpAmp))
+    # get insertions for all samples with PE100 amplicon
+    # used 3 references: refseq_PE100, refseq_PE100_shiftCTG, refseq_PE100_shiftC
+    filelist <- fread("AF_table_PE100_path.txt", header=FALSE)
+    inserted_2 <- do.call(rbind,lapply(filelist$V1, get_insertions_PE100))
 
     results <- rbind(inserted_1, inserted_2) %>% arrange(reference_sequence, Sample, Class, Event) %>%
         dplyr::mutate(design=ifelse(grepl('_C$',Sample) | grepl('-C$',Sample),'C',
@@ -594,91 +583,91 @@ main <- function(){
     correct_insertion_events <- function(results){
 
         # correct 3bp insertions shifted to the left
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_3bp_shiftC | reference_sequence==refseq_100bp_3bp_shiftC) & substr(Event,3,3)=='C',
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_3bp_shiftC | reference_sequence==refseq_PE100_3bp_shiftC) & substr(Event,3,3)=='C',
             paste0('C',substr(Event,1,2)," Insertion"),
-            ifelse((reference_sequence==refseq_244bp_3bp_shiftC | reference_sequence==refseq_100bp_3bp_shiftC) & substr(Event,3,3)!='C',"Other events",Event)))
+            ifelse((reference_sequence==refseq_PE150_3bp_shiftC | reference_sequence==refseq_PE100_3bp_shiftC) & substr(Event,3,3)!='C',"Other events",Event)))
 
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_3bp_shiftCT | reference_sequence==refseq_100bp_3bp_shiftCT) & substr(Event,2,3)=='CT',
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_3bp_shiftCT | reference_sequence==refseq_PE100_3bp_shiftCT) & substr(Event,2,3)=='CT',
             paste0('CT',substr(Event,1,1)," Insertion"),
-            ifelse((reference_sequence==refseq_244bp_3bp_shiftCT | reference_sequence==refseq_100bp_3bp_shiftCT) & substr(Event,2,3)!='CT',"Other events",Event)))
+            ifelse((reference_sequence==refseq_PE150_3bp_shiftCT | reference_sequence==refseq_PE100_3bp_shiftCT) & substr(Event,2,3)!='CT',"Other events",Event)))
 
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_3bp_shiftCTG | reference_sequence==refseq_100bp_3bp_shiftCTG) & Event!="CTG Insertion",'Other events',Event))  
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_3bp_shiftCTG | reference_sequence==refseq_PE100_3bp_shiftCTG) & Event!="CTG Insertion",'Other events',Event))  
         
         # correct 2bp insertions shifted to the left
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_2bp_shiftC | reference_sequence==refseq_100bp_2bp_shiftC) & substr(Event,2,2)=='C',
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_2bp_shiftC | reference_sequence==refseq_PE100_2bp_shiftC) & substr(Event,2,2)=='C',
             paste0('C',substr(Event,1,1)," Insertion"),
-            ifelse((reference_sequence==refseq_244bp_2bp_shiftC | reference_sequence==refseq_100bp_2bp_shiftC) & substr(Event,2,2)!='C',"Other events",Event)))
+            ifelse((reference_sequence==refseq_PE150_2bp_shiftC | reference_sequence==refseq_PE100_2bp_shiftC) & substr(Event,2,2)!='C',"Other events",Event)))
 
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_2bp_shiftCT | reference_sequence==refseq_100bp_2bp_shiftCT) & Event!="CT Insertion",'Other events',Event))  
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_2bp_shiftCT | reference_sequence==refseq_PE100_2bp_shiftCT) & Event!="CT Insertion",'Other events',Event))  
         
         # correct 4bp insertions shifted to the left
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_4bp_shiftC | reference_sequence==refseq_100bp_4bp_shiftC) & substr(Event,4,4)=='C',
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_4bp_shiftC | reference_sequence==refseq_PE100_4bp_shiftC) & substr(Event,4,4)=='C',
             paste0('C',substr(Event,1,3)," Insertion"),
-            ifelse((reference_sequence==refseq_244bp_4bp_shiftC | reference_sequence==refseq_100bp_4bp_shiftC) & substr(Event,4,4)!='C',"Other events",Event))) 
+            ifelse((reference_sequence==refseq_PE150_4bp_shiftC | reference_sequence==refseq_PE100_4bp_shiftC) & substr(Event,4,4)!='C',"Other events",Event))) 
 
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_4bp_shiftCT | reference_sequence==refseq_100bp_4bp_shiftCT) & substr(Event,3,4)=='CT',
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_4bp_shiftCT | reference_sequence==refseq_PE100_4bp_shiftCT) & substr(Event,3,4)=='CT',
             paste0('CT',substr(Event,1,2)," Insertion"),
-            ifelse((reference_sequence==refseq_244bp_4bp_shiftCT | reference_sequence==refseq_100bp_4bp_shiftCT) & substr(Event,3,4)!='CT',"Other events",Event))) 
+            ifelse((reference_sequence==refseq_PE150_4bp_shiftCT | reference_sequence==refseq_PE100_4bp_shiftCT) & substr(Event,3,4)!='CT',"Other events",Event))) 
 
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_4bp_shiftCTG | reference_sequence==refseq_100bp_4bp_shiftCTG) & substr(Event,2,4)=='CTG',
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_4bp_shiftCTG | reference_sequence==refseq_PE100_4bp_shiftCTG) & substr(Event,2,4)=='CTG',
             paste0('CTG',substr(Event,1,1)," Insertion"),
-            ifelse((reference_sequence==refseq_244bp_4bp_shiftCTG | reference_sequence==refseq_100bp_4bp_shiftCTG) & substr(Event,2,4)!='CTG',"Other events",Event))) 
+            ifelse((reference_sequence==refseq_PE150_4bp_shiftCTG | reference_sequence==refseq_PE100_4bp_shiftCTG) & substr(Event,2,4)!='CTG',"Other events",Event))) 
 
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_4bp_shiftCTGT | reference_sequence==refseq_100bp_4bp_shiftCTGT) & Event!="CTGT Insertion",'Other events',Event))  
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_4bp_shiftCTGT | reference_sequence==refseq_PE100_4bp_shiftCTGT) & Event!="CTGT Insertion",'Other events',Event))  
 
 
         # correct 3bp insertions shifted to the right
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_3bp_shiftTCright | reference_sequence==refseq_100bp_3bp_shiftTCright) & substr(Event,1,2)=='TC',
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_3bp_shiftTCright | reference_sequence==refseq_PE100_3bp_shiftTCright) & substr(Event,1,2)=='TC',
             paste0("TC",substr(Event,3,3)," Insertion"),
-            ifelse((reference_sequence==refseq_244bp_3bp_shiftTCright | reference_sequence==refseq_100bp_3bp_shiftTCright) & substr(Event,1,2)!='TC',"Other events",Event)))
+            ifelse((reference_sequence==refseq_PE150_3bp_shiftTCright | reference_sequence==refseq_PE100_3bp_shiftTCright) & substr(Event,1,2)!='TC',"Other events",Event)))
 
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_3bp_shiftCright | reference_sequence==refseq_100bp_3bp_shiftCright) & substr(Event,1,1)=='C',
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_3bp_shiftCright | reference_sequence==refseq_PE100_3bp_shiftCright) & substr(Event,1,1)=='C',
             paste0("C",substr(Event,2,3)," Insertion"),
-            ifelse((reference_sequence==refseq_244bp_3bp_shiftCright | reference_sequence==refseq_100bp_3bp_shiftCright) & substr(Event,1,1)!='C',"Other events",Event)))
+            ifelse((reference_sequence==refseq_PE150_3bp_shiftCright | reference_sequence==refseq_PE100_3bp_shiftCright) & substr(Event,1,1)!='C',"Other events",Event)))
 
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_3bp_shiftATCright | reference_sequence==refseq_100bp_3bp_shiftATCright) & Event!='ATC',"Other events",Event))
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_3bp_shiftATCright | reference_sequence==refseq_PE100_3bp_shiftATCright) & Event!='ATC',"Other events",Event))
 
         # correct 4bp insertions shifted to the right
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_4bp_shiftAATCright | reference_sequence==refseq_100bp_4bp_shiftAATCright) & Event!='AATC',"Other events",Event))
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_4bp_shiftAATCright | reference_sequence==refseq_PE100_4bp_shiftAATCright) & Event!='AATC',"Other events",Event))
 
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_4bp_shiftATCright | reference_sequence==refseq_100bp_4bp_shiftATCright) & substr(Event,1,3)=='ATC',
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_4bp_shiftATCright | reference_sequence==refseq_PE100_4bp_shiftATCright) & substr(Event,1,3)=='ATC',
             paste0("ATC",substr(Event,4,4)," Insertion"),
-            ifelse((reference_sequence==refseq_244bp_4bp_shiftATCright | reference_sequence==refseq_100bp_4bp_shiftATCright) & substr(Event,1,3)!='ATC',"Other events",Event)))
+            ifelse((reference_sequence==refseq_PE150_4bp_shiftATCright | reference_sequence==refseq_PE100_4bp_shiftATCright) & substr(Event,1,3)!='ATC',"Other events",Event)))
 
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_4bp_shiftTCright | reference_sequence==refseq_100bp_4bp_shiftTCright) & substr(Event,1,2)=='TC',
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_4bp_shiftTCright | reference_sequence==refseq_PE100_4bp_shiftTCright) & substr(Event,1,2)=='TC',
             paste0("TC",substr(Event,3,4)," Insertion"),
-            ifelse((reference_sequence==refseq_244bp_4bp_shiftTCright | reference_sequence==refseq_100bp_4bp_shiftTCright) & substr(Event,1,2)!='TC',"Other events",Event)))
+            ifelse((reference_sequence==refseq_PE150_4bp_shiftTCright | reference_sequence==refseq_PE100_4bp_shiftTCright) & substr(Event,1,2)!='TC',"Other events",Event)))
 
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_4bp_shiftCright | reference_sequence==refseq_100bp_4bp_shiftCright) & substr(Event,1,1)=='C',
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_4bp_shiftCright | reference_sequence==refseq_PE100_4bp_shiftCright) & substr(Event,1,1)=='C',
             paste0("C",substr(Event,2,4)," Insertion"),
-            ifelse((reference_sequence==refseq_244bp_4bp_shiftCright | reference_sequence==refseq_100bp_4bp_shiftCright) & substr(Event,1,1)!='C',"Other events",Event)))
+            ifelse((reference_sequence==refseq_PE150_4bp_shiftCright | reference_sequence==refseq_PE100_4bp_shiftCright) & substr(Event,1,1)!='C',"Other events",Event)))
 
         # correct 2bp insertions shifted to the right
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_2bp_shiftTCright | reference_sequence==refseq_100bp_2bp_shiftTCright) & Event!='TC',"Other events",Event))
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_2bp_shiftTCright | reference_sequence==refseq_PE100_2bp_shiftTCright) & Event!='TC',"Other events",Event))
 
-        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_244bp_2bp_shiftCright | reference_sequence==refseq_100bp_2bp_shiftCright) & substr(Event,1,1)=='C',
+        results <- results %>% dplyr::mutate(Event=ifelse((reference_sequence==refseq_PE150_2bp_shiftCright | reference_sequence==refseq_PE100_2bp_shiftCright) & substr(Event,1,1)=='C',
             paste0("C",substr(Event,2,2)," Insertion"),
-            ifelse((reference_sequence==refseq_244bp_2bp_shiftCright | reference_sequence==refseq_100bp_2bp_shiftCright) & substr(Event,1,1)!='C',"Other events",Event)))
+            ifelse((reference_sequence==refseq_PE150_2bp_shiftCright | reference_sequence==refseq_PE100_2bp_shiftCright) & substr(Event,1,1)!='C',"Other events",Event)))
 
     }
 
     results <- correct_insertion_events(results)
 
     # check which events are corrected
-    results %>% dplyr::filter(Event!=Event.uncorrected) %>% dplyr::select(reference_sequence, Class, Event.uncorrected, Event, correction) %>% distinct %>% arrange(Class,Event) %>% fwrite("myoutput/insertions_corrected.txt", sep="\t")
+    results %>% dplyr::filter(Event!=Event.uncorrected) %>% dplyr::select(reference_sequence, Class, Event.uncorrected, Event, correction) %>% distinct %>% arrange(Class,Event) %>% fwrite("output/insertions_corrected.txt", sep="\t")
 
     # save
-    results %>% fwrite("myoutput/insertions_AF_table.txt", sep="\t")
-    results %>% dplyr::filter(Event!="Other events",design != 'siRev3 pMJ119') %>% fwrite("myoutput/insertions_AF_table_filtered.txt", sep="\t")
+    results %>% fwrite("output/insertions_AF_table.txt", sep="\t")
+    results %>% dplyr::filter(Event!="Other events",design != 'siRev3 pMJ119') %>% fwrite("output/insertions_AF_table_filtered.txt", sep="\t")
 
     # generate Insertions x Samples matrix
     results_3bp <- results %>% dplyr::filter(Event!="Other events",design != 'siRev3 pMJ119',Class=="3bp Insertion") %>% dplyr::select(design, Sample, Event, `Fraction of Indel Reads`) %>% arrange(design,Sample,Event)
-    results_3bp %>% fwrite("myoutput/insertions_AF_table_filtered_3bp.txt", sep="\t")
+    results_3bp %>% fwrite("output/insertions_AF_table_filtered_3bp.txt", sep="\t")
     mat_3bp <- results_3bp %>% reshape2::acast(Event ~ Sample, value.var="Fraction of Indel Reads") %>% as.data.frame %>% rownames_to_column(var="Event") %>% dplyr::mutate(Event=gsub(" Insertion","",Event))
 
 
     # count how many Events for each reference sequence
-    results %>% dplyr::group_by(reference_sequence, design, Sample, Class, Event) %>% dplyr::summarize(reads=sum(Number)) %>% fwrite("myoutput/insertions_count.txt", sep="\t")
+    results %>% dplyr::group_by(reference_sequence, design, Sample, Class, Event) %>% dplyr::summarize(reads=sum(Number)) %>% fwrite("output/insertions_count.txt", sep="\t")
 
 
     ## -------------------------------------------------------------------------------------------------------------------
@@ -776,8 +765,8 @@ main <- function(){
 
     }
 
-    res <- results %>% dplyr::filter(reference_sequence %in% c(refseq_244bp_3bp, refseq_244bp_2bp, refseq_244bp_4bp, refseq_100bp_3bp, refseq_100bp_2bp, refseq_100bp_4bp))
-    #make_plots_at_cutting_site(res, "myoutput/insertions_at_cutting_site")
+    res <- results %>% dplyr::filter(reference_sequence %in% c(refseq_PE150_3bp, refseq_PE150_2bp, refseq_PE150_4bp, refseq_PE100_3bp, refseq_PE100_2bp, refseq_PE100_4bp))
+    #make_plots_at_cutting_site(res, "output/insertions_at_cutting_site")
 
     # for 3bp insertions shifted CTG 3bp to the left
     make_plots_shifted_CTG_3bp_to_left <- function(res, outDir){
@@ -826,8 +815,8 @@ main <- function(){
         ggsave(paste0(outDir,"/3bp_insertions_barplot.sum.pdf"),width=7,height=8)
 
     }
-    res <- results %>% dplyr::filter(reference_sequence %in% c(refseq_244bp_3bp_shiftCTG, refseq_100bp_3bp_shiftCTG))
-    #make_plots_shifted_CTG_3bp_to_left(res, "myoutput/insertions_shifted_CTG_3bp_to_left")
+    res <- results %>% dplyr::filter(reference_sequence %in% c(refseq_PE150_3bp_shiftCTG, refseq_PE100_3bp_shiftCTG))
+    #make_plots_shifted_CTG_3bp_to_left(res, "output/insertions_shifted_CTG_3bp_to_left")
 
     # for 3bp insertions shifted C 3bp to the left
     make_plots_shifted_C_3bp_to_left <- function(res, outDir){
@@ -876,8 +865,8 @@ main <- function(){
         ggsave(paste0(outDir,"/3bp_insertions_barplot.sum.pdf"),width=7,height=8)
 
     }
-    res <- results %>% dplyr::filter(reference_sequence %in% c(refseq_244bp_3bp_shiftC, refseq_100bp_3bp_shiftC))
-    #make_plots_shifted_C_3bp_to_left(res, "myoutput/insertions_shifted_C_3bp_to_left")
+    res <- results %>% dplyr::filter(reference_sequence %in% c(refseq_PE150_3bp_shiftC, refseq_PE100_3bp_shiftC))
+    #make_plots_shifted_C_3bp_to_left(res, "output/insertions_shifted_C_3bp_to_left")
 
     # for 3bp insertions shifted CT 3bp to the left
     make_plots_shifted_CT_3bp_to_left <- function(res, outDir){
@@ -926,8 +915,8 @@ main <- function(){
         ggsave(paste0(outDir,"/3bp_insertions_barplot.sum.pdf"),width=7,height=8)
 
     }
-    res <- results %>% dplyr::filter(reference_sequence %in% c(refseq_244bp_3bp_shiftCT, refseq_100bp_3bp_shiftCT))
-    #make_plots_shifted_CT_3bp_to_left(res, "myoutput/insertions_shifted_CT_3bp_to_left")
+    res <- results %>% dplyr::filter(reference_sequence %in% c(refseq_PE150_3bp_shiftCT, refseq_PE100_3bp_shiftCT))
+    #make_plots_shifted_CT_3bp_to_left(res, "output/insertions_shifted_CT_3bp_to_left")
 
 
     # for 3bp insertions all together
@@ -1013,7 +1002,7 @@ main <- function(){
 
     }
     res <- results
-    make_plots_3bp(res, "myoutput/insertions_3bp")
+    make_plots_3bp(res, "output/insertions_3bp")
 
 
     # for 2bp insertions all together
@@ -1099,7 +1088,7 @@ main <- function(){
 
     }
     res <- results
-    make_plots_2bp(res, "myoutput/insertions_2bp")
+    make_plots_2bp(res, "output/insertions_2bp")
 
 
     # for 4bp insertions all together
@@ -1185,7 +1174,7 @@ main <- function(){
 
     }
     res <- results
-    make_plots_4bp(res, "myoutput/insertions_4bp")
+    make_plots_4bp(res, "output/insertions_4bp")
 
 
 }
